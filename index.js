@@ -1,4 +1,7 @@
 // console.log("running");
+const dotenv = require("dotenv");
+dotenv.config();
+// console.log(process.env.DB_USERNAME);
 let express = require("express");
 // const mongoose = require("mongoose");
 const { connect } = require("mongoose");
@@ -8,7 +11,7 @@ let app = express();
 const connetDB = async () => {
   try {
     const conn = await connect(
-      "mongodb+srv://jaitensahu9:Rj*8109333@cluster0.qt9nu2p.mongodb.net/"
+      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.qt9nu2p.mongodb.net/`
     );
     console.log("connection was made");
   } catch (error) {
