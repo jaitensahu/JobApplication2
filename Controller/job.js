@@ -35,12 +35,8 @@ const getJob = async (req, res) => {
 const editJob = async (req, res) => {
   try {
     const allJobs = await Jobs.updateOne(
-      {
-        _id: {
-          $eq: req.body._id,
-        },
-      },
-      res.body
+      { _id: req.body._id },
+      { $set: req.body }
     );
     res.status(200).json({
       success: "true",
