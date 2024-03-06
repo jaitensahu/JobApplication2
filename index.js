@@ -9,9 +9,9 @@ const jobRoutes = require("./routes/job");
 let app = express();
 
 const connetDB = async () => {
-  try {
+  try { 
     const conn = await connect(
-      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.qt9nu2p.mongodb.net/`
+      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.qt9nu2p.mongodb.net/jobapp`
     );
     console.log("connection was made");
   } catch (error) {
